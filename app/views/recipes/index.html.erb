@@ -7,6 +7,9 @@
      <tr>
        <td><%= link_to recipe.name, recipe %></td>
        <td><span class="quiet">made with </span><%= recipe.coffee %></td>
+       <td><span class="quiet"> 
+             last modified 
+            </span><%= I18n.localize(recipe.updated_at, format: :short) %></td>
      </tr>
    <% end %>
    </table>
