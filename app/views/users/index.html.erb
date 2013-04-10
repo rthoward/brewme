@@ -1,2 +1,14 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>listing users</h1>
+
+<table class="table table-striped user-listing">
+   <% @users.each do |user| %>
+     <tr>
+       <td><%= link_to user.name, user %></td>       
+     </tr>
+   <% end %>
+   </table>
+
+<br />
+
+<%= link_to 'new user', new_user_path, class: "btn btn-large btn-primary" %>
+
