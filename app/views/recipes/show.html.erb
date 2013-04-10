@@ -1,34 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @recipe.name %>
-</p>
+  <p>
+    <b>Name:</b>
+    <%= @recipe.name %>
+  </p>
 
-<p>
-  <b>Coffee:</b>
-  <%= @recipe.coffee %>
-</p>
+  <p>
+    <b>Coffee:</b>
+    <%= @recipe.coffee %>
+  </p>
 
-<p>
-  <b>Coffee amt:</b>
-  <%= @recipe.coffee_amt %>
-</p>
+  <p>
+    <b>Coffee amt:</b>
+    <%= @recipe.coffee_amt %><span class="unit">g</span>
+  </p>
 
-<p>
-  <b>Water amt:</b>
-  <%= @recipe.water_amt %>
-</p>
+  <p>
+    <b>Water amt:</b>
+    <%= @recipe.water_amt %><span class="unit">oz</span>
+  </p>
 
-<p>
-  <b>Water temp:</b>
-  <%= @recipe.water_temp %>
-</p>
+  <p>
+    <b>Water temp:</b>
+    <%= @recipe.water_temp %><span class="unit">f</span>
+  </p>
 
-<p>
-  <b>Instructions:</b>
-  <%= @recipe.instructions %>
-</p>
+  <p>
+    <b>Instructions:</b>
+    <%= @recipe.instructions %>
+  </p>
 
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
