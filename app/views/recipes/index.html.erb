@@ -1,14 +1,15 @@
 <h1 class="center">listing recipes</h1>
 
-   <table class="table table-striped recipe-listing">
+<%= link_to 'New Recipe', new_recipe_path, class: "btn btn-coffee" %>
+
+   <table class="table table-striped recipe-listing well">
    <% @recipes.each do |recipe| %>
      <tr>
        <td><%= link_to recipe.name, recipe %></td>
        <td><span class="quiet">made with </span><%= recipe.coffee %></td>
+       <td><span class="quiet"> 
+             last modified 
+            </span><%= I18n.localize(recipe.updated_at, format: :short) %></td>
      </tr>
    <% end %>
    </table>
-
-<br />
-
-<%= link_to 'New Recipe', new_recipe_path %>
