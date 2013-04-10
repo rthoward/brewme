@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  coffee: MyString
+  coffee_amt: 1
+  water_amt: 1
+  water_temp: 1
+  instructions: MyText
+
+two:
+  name: MyString
+  coffee: MyString
+  coffee_amt: 1
+  water_amt: 1
+  water_temp: 1
+  instructions: MyText
