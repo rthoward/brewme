@@ -1,6 +1,8 @@
 <h1 class="center">listing recipes</h1>
 
-   <table class="table table-striped recipe-listing">
+<%= link_to 'New Recipe', new_recipe_path, class: "btn btn-coffee" %>
+
+   <table class="table table-striped recipe-listing well">
    <% @recipes.each do |recipe| %>
      <tr>
        <td><%= link_to recipe.name, recipe %></td>
@@ -8,7 +10,3 @@
      </tr>
    <% end %>
    </table>
-
-<br />
-
-<%= link_to 'New Recipe', new_recipe_path %>
