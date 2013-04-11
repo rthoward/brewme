@@ -40,17 +40,22 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
-    @recipe = Recipe.new(params[:recipe])
+    @recipe = current_user.recipes.build(params[:recipe])
 
-    respond_to do |format|
-      if @recipe.save
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
-        format.json { render json: @recipe, status: :created, location: @recipe }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
-      end
+    if @recipe.save
+      flash[:success] = "recipe created"
+      redirect_to root_url    
     end
+
+    # respond_to do |format|
+    #   if @recipe.save
+    #     format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
+    #     format.json { render json: @recipe, status: :created, location: @recipe }
+    #   else
+    #     format.html { render action: "new" }
+    #     format.json { render json: @recipe.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PUT /recipes/1
@@ -72,7 +77,7 @@ class RecipesController < ApplicationController
   # DELETE /recipes/1
   # DELETE /recipes/1.json
   def destroy
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:recipe])
     @recipe.destroy
 
     respond_to do |format|
@@ -80,4 +85,11 @@ class RecipesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    def recipe_params
+      params.require(:recipe).permit(:recipe)
+    end
+
 end
