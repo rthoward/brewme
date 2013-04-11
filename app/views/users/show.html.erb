@@ -1,3 +1,12 @@
 <h1>showing <%= @user.name %></h1>
 
-<h2>no recipes</h2>
+<div class="row">
+  <div class="span2 offset1 well">
+    <% if @user.recipes.any? %>
+      <ul>
+      <% @user.recipes.each do |recipe| %>
+        <li><%= recipe.name %></li>
+
+    <% end %>
+  </div>
+</div>
