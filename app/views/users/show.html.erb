@@ -1,8 +1,9 @@
-<h1>showing <%= @user.name %></h1>
+<h1><%= @user.name %>'s profile</h1>
 
 <div class="row">
-  <div class="span2 offset1 well">
-    <% if @user.recipes.any? %>
+  <div class="span5 well">
+    <h2>My Recipes</h2>
+    <% if @user.recipes.any? %>      
       <ul>
       <% @user.recipes.each do |recipe| %>
         <li><%= recipe.name %></li>
@@ -10,4 +11,9 @@
       </ul>
     <% end %>
   </div>
+
+  <div class="span5 offset1 well">
+    <h2>My Favorite Recipes</h2>
+  </div>
+
 </div>
