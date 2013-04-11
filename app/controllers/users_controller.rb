@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      flash[:success] = "Welcome to brewme!"
       redirect_to @user
     else
       render 'new'
