@@ -4,9 +4,9 @@
   <div class="span5 well">
     <h2>My Recipes</h2>
     <% if @user.recipes.any? %>      
-      <ul>
+      <ul class="recipe-list">
       <% @user.recipes.each do |recipe| %>
-        <li><%= recipe.name %></li>
+        <li><%= link_to recipe.name, recipe %></li>
       <% end %>
       </ul>
     <% end %>
