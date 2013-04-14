@@ -1,6 +1,13 @@
 class HomeController < ApplicationController
   
   def index
-  	render 'home'
+  	
+    if signed_in?
+      @recipes = Recipe.all
+      render 'newest'
+    else
+      render 'home'
+    end
   end
+
 end
