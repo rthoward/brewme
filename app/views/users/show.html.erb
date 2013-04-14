@@ -1,10 +1,10 @@
 <h1><%= @user.name %>'s profile</h1>
 
 <div class="row">
-  <div class="span5 well">
-    <h2>My Recipes</h2>
+  <div class="span5 well ">
+    <h2><%= @user.name %>'s recipes</h2>
     <% if @user.recipes.any? %>      
-      <ul class="recipe-list">
+      <ul class="user-lists">
       <% @user.recipes.each do |recipe| %>
         <li><%= link_to recipe.name, recipe %></li>
       <% end %>
@@ -13,7 +13,10 @@
   </div>
 
   <div class="span5 offset1 well">
-    <h2>My Favorite Recipes</h2>
+    <h2><%= @user.name %>'s favortie recipes</h2>
+    <ul class="user-lists">
+      <li></li>
+    </ul>
   </div>
 
 </div>
