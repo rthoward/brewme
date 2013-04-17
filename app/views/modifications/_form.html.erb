@@ -1,0 +1,41 @@
+<%= form_for(@mod) do |f| %>
+  <% if @mod.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mod.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% @mod.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :coffee %><br />
+    <%= f.text_field :coffee %>
+  </div>
+  <div class="field">
+    <%= f.label :coffee_amt %><br />
+    <%= f.number_field :coffee_amt %>
+  </div>
+  <div class="field">
+    <%= f.label :water_amt %><br />
+    <%= f.number_field :water_amt %>
+  </div>
+  <div class="field">
+    <%= f.label :water_temp %><br />
+    <%= f.number_field :water_temp %>
+  </div>
+  <div class="field">
+    <%= f.label :instructions %><br />
+    <%= f.text_area :instructions %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

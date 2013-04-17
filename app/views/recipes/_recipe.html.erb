@@ -1,5 +1,11 @@
 <h1><%= recipe.name %></h1>
-<h2>by <%= recipe.user.name %></h2>
+
+
+<% if recipe.is_mod? %>
+  <h2>by <%= recipe.user.name %>, modifies <%= link_to recipe.original.name, recipe.original %></h2>
+<% else %>
+  <h2>by <%= recipe.user.name %></h2>
+<% end %>
 
 <div class="row">
 

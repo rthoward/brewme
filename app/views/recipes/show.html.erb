@@ -3,5 +3,5 @@
 <%= render @recipe %>
 
 <% if current_user?(@owner) %>
-  <%= link_to 'Edit', edit_recipe_path(@recipe), class: "btn btn-info" %>
+  <%= link_to 'Edit', modify_path(@recipe), class: "btn btn-info" %>
 <% end %>

@@ -1,5 +1,9 @@
 Brewme::Application.routes.draw do
   
+  get "modifications/new"
+
+  get "modifications/create"
+
   root to: "home#index"
 
   resources :recipes
@@ -11,6 +15,9 @@ Brewme::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
 
   match 'user/:name', to: 'users#show'
+
+  match 'recipes/:id/modify', to: 'modifications#new', as: "modify"
+  match 'modifications', to: 'modifications#create', via: :post
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
