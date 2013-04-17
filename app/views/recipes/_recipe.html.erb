@@ -1,8 +1,25 @@
 <h1><%= recipe.name %></h1>
 
-
 <% if recipe.is_mod? %>
+
   <h2>by <%= recipe.user.name %>, modifies <%= link_to recipe.original.name, recipe.original %></h2>
+
+    <div class="row span10">
+      <ul class="breadcrumb">
+        <% recipe.mod_hierarchy.each do |mod| %>
+          
+          <% if mod == recipe %>
+            <li class="active">
+          <% else %>
+            <li>
+          <% end %>
+
+          <%= link_to mod.name, mod %><span class="divider">..</span></li>
+
+        <% end %>
+      </ul>
+    </div>
+    
 <% else %>
   <h2>by <%= recipe.user.name %></h2>
 <% end %>
@@ -36,6 +53,7 @@
 
   <div class="span5 offset1 well recipe-instructions">
     <p><%= recipe.instructions %></p>
-  </div>
+  </div> 
 
 </div>
+

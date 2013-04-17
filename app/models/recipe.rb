@@ -32,4 +32,17 @@ class Recipe < ActiveRecord::Base
   	return Recipe.find_by_id(original_recipe_id)
   end
 
+  # returns lineage of recipe tweaks, with ancestor first
+  def mod_hierarchy
+    hierarchy = Array.new
+    current_recipe = self
+    hierarchy << current_recipe
+
+    while current_recipe.is_mod?
+      hierarchy << current_recipe = current_recipe.original
+    end
+
+    return hierarchy.reverse
+  end
+
 end
