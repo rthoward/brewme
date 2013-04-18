@@ -2,6 +2,4 @@
 
 <%= render @recipe %>
 
-<% if current_user?(@owner) %>
-  <%= link_to 'Edit', modify_path(@recipe), class: "btn btn-info" %>
-<% end %>
+<%= link_to 'Edit', modify_path(@recipe), class: "btn btn-info" %>
