@@ -1,4 +1,6 @@
 class ModificationsController < ApplicationController
+
+  before_filter :signed_in_user
   
   def new
   	@original = Recipe.find_by_id(params[:id])
