@@ -3,3 +3,7 @@
 <%= render @recipe %>
 
 <%= link_to 'Edit', modify_path(@recipe), class: "btn btn-info" %>
+
+<% if @recipe.is_mod? && @recipe.has_siblings? %>
+  <%= render partial: 'siblings', object: @recipe %>
+<% end %>

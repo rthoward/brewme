@@ -1,0 +1,13 @@
+
+<div class="well">
+  <h4 class="">
+    other recipes that modify <%= link_to @recipe.parent.name, @recipe.parent %>
+  </h4>
+
+  <ul>
+    <% @recipe.siblings_only.each do |sibling| %>
+      <li><%= link_to sibling.name, sibling %></li>
+    <% end %>
+  </ul>
+
+</div>

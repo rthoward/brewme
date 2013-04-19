@@ -2,7 +2,7 @@
 
 <% if recipe.is_mod? %>
 
-  <h2>by <%= recipe.user.name %>, modifies <%= link_to recipe.original.name, recipe.original %></h2>
+  <h2>by <%= recipe.user.name %>, modifies <%= link_to recipe.parent.name, recipe.parent %></h2>
 
     <div class="row span10">
       <ul class="breadcrumb">

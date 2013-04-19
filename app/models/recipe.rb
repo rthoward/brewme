@@ -11,6 +11,8 @@ class Recipe < ActiveRecord::Base
 
   default_scope order: 'recipes.created_at DESC'
 
+  # helper methods ------------------------------
+
   def modifies(recipe)
   	self.coffee = recipe.coffee
   	self.coffee_amt = recipe.coffee_amt
@@ -28,18 +30,40 @@ class Recipe < ActiveRecord::Base
   	return !original_recipe_id.nil?
   end
 
-  def original
+  def parent
   	return Recipe.find_by_id(original_recipe_id)
   end
 
-  # returns lineage of recipe tweaks, with ancestor first
+  def root
+    return mod_hierarchy.first
+  end
+
+  def has_siblings?
+    return false if !is_mod?
+    return false if parent.mods.nil?
+    return parent.mods.size > 1
+  end
+
+  def siblings
+    return parent.mods
+  end
+
+  def siblings_only
+    return siblings.reject {|node| node == self}     
+  end
+
+  def children
+    return mods
+  end
+
+  # returns lineage of recipe tweaks, with oldest ancestor first
   def mod_hierarchy
     hierarchy = Array.new
     current_recipe = self
     hierarchy << current_recipe
 
     while current_recipe.is_mod?
-      hierarchy << current_recipe = current_recipe.original
+      hierarchy << current_recipe = current_recipe.parent
     end
 
     return hierarchy.reverse
