@@ -1,0 +1,28 @@
+<div class="span5">
+    <table class="table table-striped well">
+      <tr>
+        <td>Coffee</td>
+        <td><%= @recipe.coffee %></td>
+      </tr>
+      <tr>
+        <td>Coffee Amount</td>
+        <td><%= @recipe.coffee_amt %></td>
+      </tr>
+      <tr>
+        <td>Coffee Amount</td>
+        <td><%= @recipe.coffee_amt %></td>
+      </tr>
+      <tr>
+        <td>Water Amount</td>
+        <td><%= @recipe.water_amt %></td>
+      </tr>
+      <tr>
+        <td>Water Temperature</td>
+        <td><%= @recipe.water_temp %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="span5 offset1 well @recipe-instructions">
+    <p><%= @recipe.instructions %></p>
+  </div> 

@@ -1,0 +1,13 @@
+<h1><%= @recipe.name %></h1>
+
+<% if @recipe.is_mod? %>
+
+  <h2>by <%= @recipe.user.name %>, modifies <%= link_to @recipe.parent.name, @recipe.parent %></h2>
+  
+  <div class="row span10">
+    <%= render partial: 'recipes/desc/breadcrumb' %>    
+  </div>
+    
+<% else %>
+  <h2>by <%= @recipe.user.name %></h2>
+<% end %>

@@ -1,9 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<%= render @recipe %>
+<%= render partial: 'recipes/desc/title', object: @recipe %>
 
-<%= link_to 'Edit', modify_path(@recipe), class: "btn btn-info" %>
+<div class="row"> 
+  <%= render partial: 'recipes/desc/description', object: @recipe %>
+</div>
 
-<% if @recipe.is_mod? && @recipe.has_siblings? %>
-  <%= render partial: 'siblings', object: @recipe %>
-<% end %>
+<div class="row">
+  <%= link_to 'Edit', modify_path(@recipe), class: "btn btn-info" %>
+
+  <% if @recipe.is_mod? && @recipe.has_siblings? %>
+    <%= render partial: 'recipes/desc/siblings', object: @recipe %>
+  <% end %>
+</div>
