@@ -10,7 +10,10 @@
   
   <div class="tab-content">
     <div class="tab-pane active" id="tab1">
-      <%= render partial: 'recipes/desc/description', object: @recipe %>
+      <div class="row">
+        <%= render partial: 'recipes/desc/description', object: @recipe %>
+      </div>
+      <%= link_to 'Tweak', modify_path(@recipe), class: "btn btn-info" %>
     </div>
     <div class="tab-pane" id="tab2">
       <% if @recipe.is_mod? && @recipe.has_siblings? %>
@@ -21,4 +24,3 @@
   </div>
 </div>
 
-<%= link_to 'Edit', modify_path(@recipe), class: "btn btn-info" %>
